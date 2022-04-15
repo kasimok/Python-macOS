@@ -95,10 +95,10 @@ public func initialize() {
     setenv("PYTHONPATH", ".", 1)
     setenv("PYTHONUNBUFFERED", "1", 1)
     setenv("LC_CTYPE", "UTF-8", 1)
-    #if DEBUG
-    setenv("PYTHONVERBOSE", "1", 1)
-    setenv("PYOBJUS_DEBUG", "1", 1)
-    #endif
+    //#if DEBUG
+    //setenv("PYTHONVERBOSE", "1", 1)
+    //setenv("PYOBJUS_DEBUG", "1", 1)
+    //#endif
 
     let pythonHome = (Bundle.module.bundleURL.path as NSString).appendingPathComponent("Contents/Resources")
     setenv("PYTHONHOME", pythonHome, 1)
@@ -107,7 +107,7 @@ public func initialize() {
 
     setenv("TMP", NSTemporaryDirectory(), 1)
 
-    _ = PythonInitialize(0, nil, "")
+    _ = PythonInitialize(0, nil, importer)
 }
 
 public func finalize() {
