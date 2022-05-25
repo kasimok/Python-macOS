@@ -29,21 +29,12 @@ private let importer = """
     import sys, imp, types
     from os import environ
     from os.path import exists, join
+    
+    import _imp
 
-    try:
-        # python 3
-        import _imp
-
-        EXTS = _imp.extension_suffixes()
-        sys.modules['subprocess'] = types.ModuleType(name='subprocess')
-        sys.modules['subprocess'].PIPE = None
-        sys.modules['subprocess'].STDOUT = None
-        sys.modules['subprocess'].DEVNULL = None
-        sys.modules['subprocess'].CalledProcessError = Exception
-        sys.modules['subprocess'].check_output = None
-    except ImportError:
-        EXTS = ['.so']
-
+    EXTS = _imp.extension_suffixes()
+    
+    
     # Fake redirection to supress console output
     if environ.get('KIVY_NO_CONSOLE', '0') == '1':
         class fakestd(object):
