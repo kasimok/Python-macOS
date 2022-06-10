@@ -95,7 +95,6 @@ public func initialize() {
     setenv("PYTHONPATH", ".", 1)
     setenv("PYTHONUNBUFFERED", "1", 1)
     setenv("LC_CTYPE", "UTF-8", 1)
-    setenv("no_proxy", "*", 1)
     //#if DEBUG
     //setenv("PYTHONVERBOSE", "1", 1)
     //setenv("PYOBJUS_DEBUG", "1", 1)
@@ -107,6 +106,7 @@ public func initialize() {
     setenv("PYTHONPATH", "\(pythonHome)/lib/python3.9/:\(pythonHome)/lib/python3.9/site-packages", 1)
 
     setenv("TMP", NSTemporaryDirectory(), 1)
+    setenv("no_proxy", "*", 1)
 
     _ = PythonInitialize(0, nil, importer)
 }
