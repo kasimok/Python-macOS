@@ -97,6 +97,7 @@ public func initialize() {
     setenv("PYTHONPATH", "\(pythonHome)/lib/python3.9/:\(pythonHome)/lib/python3.9/site-packages", 1)
 
     setenv("TMP", NSTemporaryDirectory(), 1)
+    setenv("no_proxy", "*", 1)
 
     setenv("no_proxy", "*", 1)
     
